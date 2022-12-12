@@ -1,0 +1,19 @@
+table {
+    background: none;
+    color: black;
+}
+
+@media (min-width: 1025px) {
+.h-custom {
+height: 100vh !important;
+}
+}
+
+.danger {
+   background: none;
+   border: none;
+}
+
+.bi-trash3 {
+    color: red;
+}

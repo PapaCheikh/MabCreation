@@ -1,0 +1,61 @@
+<section class="vh-100" style="margin-top: -35rem !important;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="../../assets/img/her.png" width="2000" alt="login form" class="img-fluid"
+                style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form>
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <span class="h1 fw-bold mb-0">
+                      <img src="../../assets/img/outfit.png" width="100" alt=""> MAB Création
+                    </span>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Veuillez - vous connecter s'il vous plait
+                  </h5>
+
+                  <div class="form-outline mb-4">
+                    <input type="text" id="username" class="form-control form-control-lg" name="username"
+                      [(ngModel)]="user.username" />
+                    <label class="form-label" for="username">nom d'utilisateur</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input type="password" id="password" class="form-control form-control-lg" name="password"
+                      [(ngModel)]="user.password" />
+                    <label class="form-label" for="password">mot de passe</label>
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="button" (click)="onLoggedin()">Se
+                      connecter</button>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="erreur==1">
+                    <strong>login ou mot de passe erronés...</strong>
+                  </div>
+                  <div class="alert alert-danger" *ngIf="error==1">
+                    <strong>Désolé, ce compte n'est pas activé ou a été bloqué. Veuillez contacter le service
+                      concerné.</strong>
+                  </div>
+                  <a href="#!" class="small text-muted">Mot de passe oublié? </a> |
+                  <a href="#!" class="small text-muted">Terme Contrat </a> |
+                  <a href="#!" class="small text-muted">Confidentialité</a>
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

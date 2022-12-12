@@ -1,0 +1,16 @@
+.bi-award-fill {
+    color:rgb(255, 0, 157);
+}
+
+.danger {
+   background: none;
+   border: none;
+}
+
+.bi-box-arrow-in-down {
+    color: rgb(0, 0, 255);
+}
+
+.bi-trash3 {
+    color: red;
+}

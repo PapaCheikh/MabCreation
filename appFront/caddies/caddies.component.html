@@ -1,0 +1,192 @@
+<section class="h-100 h-custom" style="margin-top: -35rem !important;background-color: none;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4">
+
+                        <div class="row">
+
+                            <div class="col-lg-7">
+                                <h5 class="mb-3"><a href="#!" class="text-body"><i
+                                            class="fas fa-long-arrow-alt-left me-2"></i>Continuer Commande</a></h5>
+                                <hr>
+
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div>
+                                        <p class="mb-1">Panier de la Commande</p>
+                                        <p class="mb-0">Vous avez {{caddyService.getCurrentCaddy().items.size}} produit
+                                            dans votre panier</p>
+                                    </div>
+                                </div>
+
+                                <div class="card mb-3"
+                                    *ngFor="let item of caddyService.getCurrentCaddy().items.values()">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div>
+                                                    <img src="{{this.catService.host+'/photoProduct/'+item.product.id}}"
+                                                        class="img-fluid rounded-3" alt="Shopping item"
+                                                        style="width: 65px;">
+                                                </div>
+                                                <div class="ms-3">
+                                                    <h5>{{item.product.name}}</h5>
+                                                    <p class="small mb-0">{{item.product.description}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div style="width: 50px;">
+                                                    <h5 class="fw-normal mb-0">{{item.product.quantity}}</h5>
+                                                </div>
+                                                <div style="width: 80px;">
+                                                    <h5 class="mb-0">${{item.product.currentPrice|number:'0.1'}}</h5>
+                                                </div>
+                                                <button class="danger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                        fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-2">Promo</p>
+                                    <p class="mb-2">Gratuit</p>
+                                </div>
+
+                                <div class="d-flex justify-content-between">
+                                    <p class="mb-2">Total</p>
+                                    <p class="mb-2">${{caddyService.getTotal()|number:'0.2'}}</p>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-5">
+
+                                <div class="card bg-primary text-white rounded-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <h5 class="mb-0">Card details</h5>
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
+                                                class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
+                                        </div>
+
+                                        <div class="card mb-4 mb-lg-0">
+                                            <div class="card-body">
+                                                <img class="me-2" width="45px"
+                                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTM6CQ7ScZI12XICz9r1BVfc3tGnJ5N_GEQtLRTX-GisYNvxXEpOBuxm3UxBigmAY1jf60&usqp=CAU"
+                                                    alt="Visa" [width]="200" />
+                                            </div>
+                                        </div><label class="form-label" for="typeName">On accepte</label>
+                                        <form class="mt-4" #f="ngForm" (ngSubmit)="addCommande(f.value)">
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="text" id="typeExp" ngModel name="name"
+                                                            class="form-control form-control-lg" placeholder="gningue"
+                                                            size="7" id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Nom</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="email" id="typeExp" ngModel name="email"
+                                                            class="form-control form-control-lg" placeholder="cheikh"
+                                                            size="7" id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Email</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="text" id="typeExp" ngModel name="address"
+                                                            class="form-control form-control-lg" placeholder="gadaye"
+                                                            size="7" id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Adresse</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="number" id="typeExp" ngModel name="phoneNumber"
+                                                            class="form-control form-control-lg"
+                                                            placeholder="77 325 15 78" size="7" id="exp" minlength="7"
+                                                            maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Téléphone</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="text" id="typeName" ngModel name="username"
+                                                    class="form-control form-control-lg" siez="17"
+                                                    placeholder="Surnom du client" />
+                                                <label class="form-label" for="typeName">Surnom Du Client</label>
+                                            </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="text" id="typeName" ngModel name="cardeName"
+                                                    class="form-control form-control-lg" siez="17"
+                                                    placeholder="Nom dans la carte" />
+                                                <label class="form-label" for="typeName">Nom carte</label>
+                                            </div>
+
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="number" id="typeText" ngModel name="cardNumber"
+                                                    class="form-control form-control-lg" siez="17"
+                                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                                <label class="form-label" for="typeText">Numéro Carte</label>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="date" id="typeExp" ngModel name="expiration"
+                                                            class="form-control form-control-lg" placeholder="MM/YYYY"
+                                                            size="7" id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Expiration</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="password" id="typeText" ngModel name="cvv"
+                                                            class="form-control form-control-lg"
+                                                            placeholder="&#9679;&#9679;&#9679;&#9679;" size="1"
+                                                            minlength="3" maxlength="3" />
+                                                        <label class="form-label" for="typeText">Cvv</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="date" id="typeText" ngModel name="cardNumber"
+                                                    class="form-control form-control-lg" siez="17"
+                                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                                <label class="form-label" for="typeText">Date D'aujourd(hui</label>
+                                            </div>
+
+                                            <hr class="my-4">
+                                            <div class="alert alert-success" *ngIf="added==1">
+                                                <strong>Success! </strong> {{message}} <a routerLink="/products/1/0"
+                                                    class="alert-link"> voir</a>.
+                                            </div><br>
+                                            <button type="submit" class="btn btn-info btn-block btn-lg" *ngIf="added==0"
+                                                style="margin-left: 15px;border-radius: 10px;">
+                                                <div class="d-flex justify-content-between">
+                                                    <span>Confirmer Commande
+                                                        (${{caddyService.getTotal()|number:'0.2'}})
+                                                        <i class="fas fa-long-arrow-alt-right ms-2"></i>
+                                                    </span>
+                                                </div>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

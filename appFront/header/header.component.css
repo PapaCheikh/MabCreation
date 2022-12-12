@@ -1,0 +1,29 @@
+.fw-medium {
+    cursor: pointer;
+}
+
+.bi-award-fill {
+    color: rgb(255, 0, 157);
+}
+
+.myForm {
+    width: 50rem;
+    margin-top: -5rem;
+    margin-left: 18%;
+}
+
+@media only screen and (max-width: 1180px) {
+    .myForm {
+        width: 20rem;
+        margin-top: -7rem;
+        margin-left: 2%;
+    }
+}
+
+.position-relative {
+    background: none;
+    padding: 0;
+    border: none;
+    color: black;
+    margin-right: 15px;
+}

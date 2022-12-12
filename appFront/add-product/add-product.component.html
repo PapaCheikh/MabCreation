@@ -1,0 +1,63 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ajout_Medoc</title>
+</head>
+<body>
+    <div class="container" style="margin-top: -23rem !important;">
+        <div class="row">
+            <div class="col-md-9">
+                <h1>Ajouter un produit</h1><br>
+                <form #f="ngForm" (ngSubmit)="addProduit(f.value)">
+                    <div class="form-group">
+                        <label for="name">Nom du produit</label>
+                        <input type="text" class="form-control" id="name" ngModel name="name" placeholder="Nom du produit">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" ngModel name="description" rows="3"></textarea>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="currentPrice">Prix</label>
+                        <input type="number" class="form-control" id="currentPrice" ngModel name="currentPrice" placeholder="Prix">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="promotion">Promotion</label>
+                        <input type="text" class="form-control" id="promotion" ngModel name="promotion" placeholder="true or false ?">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="selected">Sélectionné</label>
+                        <input type="text" class="form-control" id="selected" ngModel name="selected" placeholder="true or false ?">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="available">Disponible</label>
+                        <input type="text" class="form-control" id="available" ngModel name="available" placeholder="true or false ?">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="quantity">Quantité</label>
+                        <input type="number" class="form-control" id="quantity" ngModel name="quantity" placeholder="Quantité">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="photo">Photo du produit</label>
+                        <input type="text" class="form-control" id="photoName" ngModel name="photoName" placeholder="Photo du produit: unknown.png">
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="category">Catégorie</label>
+                        <select class="form-control" id="category" ngModel name="category"  *ngIf="categories">
+                            <option *ngFor="let c of categories._embedded.categories" [value]="c.id">{{c.name}}</option>
+                        </select>
+                    </div> -->
+                    <div class="alert alert-success" *ngIf="added==1">
+                        <strong>Success! </strong> {{message}} <a routerLink="/products/1/0" class="alert-link"> voir</a>.
+                    </div><br>
+                    <button type="submit" class="btn btn-primary" *ngIf="added==0">Ajouter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html><br>
+
+<app-footer></app-footer>

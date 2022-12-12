@@ -1,0 +1,46 @@
+<div class="container" style="margin-top: -25rem !important;" *ngIf="currentProduct">
+        <div class="row">
+            <div class="col-md-9">
+                <h1>Modifier un produit</h1><br>
+                <form>
+                    <div class="form-group disacted">
+                        <label for="id">Id du produit</label>
+                        <input type="text" class="form-control" id="id" name="id" [(ngModel)]="currentProduct.id" placeholder="Id du produit">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="name">Nom du produit</label>
+                        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="currentProduct.name" placeholder="Nom du produit">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" [(ngModel)]="currentProduct.description" name="description" rows="3"></textarea>
+                    </div><br>
+                    <div class="form-group">
+                        <label for="currentPrice">Prix</label>
+                        <input type="number" class="form-control" id="currentPrice" [(ngModel)]="currentProduct.currentPrice" name="currentPrice" placeholder="Prix">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="promotion">Promotion</label>
+                        <input type="text" class="form-control" id="promotion" [(ngModel)]="currentProduct.promotion" name="promotion" placeholder="Promotion ?">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="selected">Sélectionné</label>
+                        <input type="text" class="form-control" id="selected" [(ngModel)]="currentProduct.selected" name="selected" placeholder="Sélectionné ?">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="available">Disponible</label>
+                        <input type="text" class="form-control" id="available" [(ngModel)]="currentProduct.available" name="available" placeholder="Disponible ?">
+                    </div><br>
+                    <div class="form-group">
+                        <label for="quantity">Quantité</label>
+                        <input type="number" class="form-control" id="quantity" [(ngModel)]="currentProduct.quantity" name="quantity" placeholder="Quantité">
+                    </div><br>
+                    <div class="alert alert-success" *ngIf="added==1">
+                        <strong>Update! </strong> {{message}} <a routerLink="/products/1/0" class="alert-link">voir</a>.
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" (click)="updateProduit(currentProduct)" *ngIf="added==0">Mise À Jour</button>
+                </form>
+            </div>
+        </div>
+    </div>
